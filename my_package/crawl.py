@@ -1,5 +1,5 @@
-from selenium import webdriver
-from bs4 import BeautifulSoup
+from selenium import webdriver # webdriver를 사용해서 웹 페이지의 제어를 가져온다.
+from bs4 import BeautifulSoup # 웹페이지의 제어를 가져온후 BeautifulSoup로 크롤링을 진행한다.
 import requests
 import urllib.request
 import re
@@ -19,10 +19,10 @@ def cov_weather():
     options.add_argument("disable-gpu")
     drivier = webdriver.Chrome('chromedriver', chrome_options=options)
 
-    cocid19 = 'http://ncov.mohw.go.kr/'
+    covid19 = 'http://ncov.mohw.go.kr/'
     weather = 'https://n.weather.naver.com/'
 
-    req = urllib.request.urlopen(cocid19)
+    req = urllib.request.urlopen(covid19)
     res = req.read()
     soup = BeautifulSoup(res, "html.parser")
     before = soup.find(class_='before').text
@@ -30,26 +30,23 @@ def cov_weather():
     req = urllib.request.urlopen(weather)
     res = req.read()
     soup = BeautifulSoup(res, "html.parser")
-    todaytemp = soup.find(class_='current').text
-    todayweather = soup.find(class_='weather').text
+    
+    todayweather = soup.find(class_='weather').text # 현재 오후 온도라 사용 x
+    summary = soup.find(class_='summary').text
+    todaytemp = soup.find(class_='current').text # ex) 현재 온도13
+   
+    #felling = soup.find(class_='desc_feeling').text # ex) 체감온도13
 
-    # todayhigh=soup.find(class_='degree_height').text
-    # todaylow=soup.find(class_='degree_low').text
 
     before = re.findall('\d', before)
     before = "".join(before)
-    a=("일일확진자 " + before + '명 /' + todaytemp + "/ 날씨" + todayweather + "\n")
+    result=("일일확진자 " + before + "명" + "," + todaytemp + ","+ todayweather +"," + summary.strip())
 
     t1.start()
     t1.cancel()
-    return a
+    return result
+
 
 cov_weather()
-
-'''
-while True:
+if __name__ == '__main__':
     cov_weather()
-    if keyboard.is_pressed('a'): # 스페이스 키를 눌렀으면
-        break
-    else:
-        continue'''
