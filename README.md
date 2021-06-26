@@ -26,17 +26,19 @@
 ## 3. Project WorkFlow
 
 
-[이미지 넣기]
+![workflow.png](./images/workflow.png)
 
 </br>
 
 
 ## 4. 순서도
-[마스크 착용관련 Trhead 1 ]
+![Thread1.png](./images/Thread1.png)
 
 사람을 식별한 후 마스크를 착용했는지 확인하는 thread
 
-[마스크 착용관련 Trhead 2 ]
+---
+
+![Thread2.png](./images/Thread2.png)
 
 마스크를 착용하지 않은 경우 마스크를 착용해주세요 음성 출력,
 착용한 경우 NFC 인식 스레드 실행
