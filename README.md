@@ -1,6 +1,7 @@
 # mask-detector
 대학교 캡스톤 디자인 경진대회 - 마스크 검출기 - Object Detection, dlib_CNN
 
+</br></br>
 
 ## 1. 프로젝트 개요
 
@@ -32,18 +33,27 @@
 
 
 ## 4. 순서도
+### 4-1. Thread_1
+
+사람을 식별한 후 마스크 착용 유/무 확인
+
 ![Thread1.png](./images/Thread1.PNG)
 
-사람을 식별한 후 마스크를 착용했는지 확인하는 thread
+
+</br>
 
 ---
 
+
+### 4-2. Thread_2
+마스크를 착용하지 않은 경우 마스크를 착용해주세요 음성 출력, </br>착용한 경우 NFC 인식 스레드 실행
+
 ![Thread2.png](./images/Thread2.PNG)
 
-마스크를 착용하지 않은 경우 마스크를 착용해주세요 음성 출력,
-착용한 경우 NFC 인식 스레드 실행
-
 </br>
+
+
+
 
 ## 5. 프로젝트 환경구성
 
@@ -52,6 +62,3 @@
   - OpenCV </br> opencv-python</br>
   - MaridDB
     
-
-
-작성중...
