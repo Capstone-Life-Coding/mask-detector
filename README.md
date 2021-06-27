@@ -57,8 +57,17 @@
 
 ## 5. 프로젝트 환경구성
 
-- 주요 환경 구성
-  - 라즈베리 파이 </br> 카메라모듈, RFID 리더기</br>
-  - OpenCV </br> opencv-python</br>
-  - MaridDB
+- **주요 환경 구성**
+  - **라즈베리 파이** </br> 카메라모듈, RFID 리더기</br> 
+  - **구축 OS** </br> Raspbian OS (Debian 기반)
+  - **데이터베이스** </br> Maria DB
     
+- **관련 기술 (Python) 라이브러리**
+  - **딥러닝** : Tensorflow, keras, sklearn, matplotlib
+  - **영상 처리 (자료 처리)** : OpenCV, Tensorflow, keras
+  - **멀티 스레드** : threading
+  - **크롤링** : chromeDrive, BeautifulSoup
+  - **소리 출력** : Pygame, playsound
+  - **수식 처리** : numpy, numba
+  - **RFID 처리** : pn532
+
