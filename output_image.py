@@ -14,7 +14,7 @@ def PIL_image(cov_list,img_rect):
     # 4글자 인덱스 순서대로 :  날씨 이모티콘, 온도 (17º), 구름많음 or 구름조금, 일일확진자 91명
         draw.text((514,585), cov_list[0], font=ImageFont.truetype('NotoEmoji-Regular.ttf', 60), fill=(255, 255, 255))
         draw.text((584,605), cov_list[1], font=ImageFont.truetype('NanumSquareRoundB.ttf', 50), fill=(255, 255, 255))
-        draw.text((542,667), cov_list[2]  , font=ImageFont.truetype('NanumSquareRoundB.ttf', 20), fill=(255, 255, 255))
+        draw.text((542,667), cov_list[2]  , font=ImageFont.truetype('NanumSquareRoundB.ttf', 24), fill=(255, 255, 255))
         draw.text((514,730), cov_list[3] , font=ImageFont.truetype('NanumSquareRoundB.ttf', 22), fill=(255, 255, 255))
     else:
         # 두글자 인덱스 순서대로 :  날씨 이모티콘, 맑음 17º, 어제보다...  , 일일확진자 91명
@@ -87,7 +87,7 @@ def crawlText():
     # ============= 2021 / 06  ==============
     day_covid = cov_Comma_list[0]
     current_weather = cov_Comma_list[2]
-    temp = cov_Space_list[1][-3:]
+    temp = cov_Comma_list[1][-3:]
 
     if "구름" in current_weather or "흐림" in current_weather:
         unicode_text = u"\u2601"
@@ -96,11 +96,14 @@ def crawlText():
     elif "비" in current_weather:
         unicode_text = u"\u2614"
     #if len(cov_Comma_list[-1].strip()) !=4:   # 구름많음, 구름조금
+    print("cov_Comma_list : ", cov_Comma_list , "  cov_Space_list : ", cov_Space_list)
     if len(current_weather) >=4:   # 구름많음, 구름조금
          #  ============ 2020 / 10 ==============
         # 4글자 ex) 구름많음 일 경우   이모티콘은 0번쨰 인덱스
         #temp = cov_Space_list[3][2:]    # 온도
         #current_weather = cov_Comma_list[-1].strip() # 구름많음
+        print("temp : ", temp)
+        print("current_weather : ", current_weather)
         return [unicode_text, temp, current_weather, day_covid,cov_chk]
     
     else:
